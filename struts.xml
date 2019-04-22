@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+ 
+<struts>
+    <!--编码格式-->
+    <constant name="struts.i18n.encoding" value="UTF-8"></constant>
+ 
+    <package name="basicstruts" namespace="/" extends="struts-default">
+ 
+ 		<!--检查-->
+ 		<action name="look" class="com.action.ProductAction" method="GetUser">
+ 			<result name="Yes">index</result>
+ 			<result name="No">error.jsp</result>
+ 		</action>
+        <!--查询-->
+        <action name="index" class="com.action.ProductAction" method="GetList">
+            <result name="showList">mains.jsp</result>
+        </action>
+ 
+        <!--删除,使用查询的name属性"index"-->
+        <action name="delete" class="com.action.ProductAction" method="GetDelete">
+            <result name="GetList" type="redirect">index</result> <!--type="redirect" 禁重复提交-->
+        </action>
+ 
+        <!--查单条明细 带入修改页面-->
+        <action name="detail" class="com.action.ProductAction" method="GetDetail">
+            <result name="showDetail">edit.jsp</result>
+        </action>
+ 
+        <!--修改-->
+        <action name="update" class="com.action.ProductAction" method="GetUpdate">
+            <result name="GetList" type="redirect">index</result>
+        </action>
+ 
+        <!--添加(完成操作后,跳回main.jsp显示)-->
+        <action name="insert" class="com.action.ProductAction" method="GetInsert">
+            <result name="GetList" type="redirect">index</result>
+        </action>
+ 
+ 
+    </package>
+ 
+</struts>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!--映射实体类的包路径-->
+<hibernate-mapping package="com.entity">
+    <!--ProductEntity实体类，对应数据库表ProductEntity-->
+    <class name="ProductEntity" table="ProductEntity">
+        <!--属性id,映射表里的字段id-->
+        <id name="id" column="id">
+            <!--id的自增长方式采用数据库的本地方式-->
+            <!--  <generator class="native"></generator> -->
+        </id>
+        <!--字段属性-->
+        <property name="keyes" />
+        <property name="age" />
+        <property name="sex" />
+        <property name="users"/>
+      <!--   <property name="user" /> -->
+    </class>
+ 
+</hibernate-mapping>
